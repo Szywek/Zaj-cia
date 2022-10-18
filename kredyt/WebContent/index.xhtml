@@ -3,27 +3,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Kalkulator Kredytowy</title>
 </h:head>
 <h:body>
-
+<p:panel>
 	<h1>Kalkulator kredytowy</h1>
 
 	<h:form id="bla">
-  		Kwota: <h:inputText value="#{creditBB.x}" />
-		<br /><br />
-  		Okres: <h:inputText value="#{creditBB.y}" />
-		<br /><br />
-		Oprocentowanie: <h:inputText value="#{creditBB.z}" />
-		<br /><br />
-		
-		<h:messages id="msg" />
-
-		<h:commandButton value="Dodaj" action="#{creditBB.calc()}"/>
-		
+  			<span class="ui-float-label">
+  				<p:inputText id="x" value="#{creditBB.x}" required="true" requiredMessage="Nie podano kwoty"/>
+  				<p:outputLabel for="@previous" value="Kwota"/>
+  				<p:message for="x"/>
+  			</span>
+  				
+  			<br/>
+  			<br/>
+			<span class="ui-float-label">
+  				<p:inputText id="y" value="#{creditBB.y}" required="true" requiredMessage="Nie podano Okresu"/>
+  				<p:outputLabel for="@previous" value="Okres"/>
+  				<p:message for="y"/>
+  			</span>
+  			
+			<br/>
+  			<br/>
+			<span class="ui-float-label">
+  				<p:inputText id="z" value="#{creditBB.z}" required="true" requiredMessage="Nie podano Oprocentowania"/>
+  				<p:outputLabel for="@previous" value="Oprocentowanie"/>
+  				<p:message for="z"/>
+  			</span>
+				
+			<br/>
+			<br/>
+			<p:commandButton value="Oblicz" action="#{creditBB.calc()}" update="msg" />
+			
+			<p:growl id="msg" showDetail="true" sticky="true"/>
+			
 	</h:form>
-
+</p:panel>
 </h:body>
 </html>
