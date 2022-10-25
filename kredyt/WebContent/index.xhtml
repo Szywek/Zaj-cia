@@ -5,12 +5,13 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>Kalkulator Kredytowy</title>
-</h:head>
+	
+<ui:composition template="templates/page-template.xhtml">
+<ui:define name="pageContent">
+
 <h:body>
 <p:panel>
-	<h1>Kalkulator kredytowy</h1>
+	
 
 	<h:form id="bla">
   			<span class="ui-float-label">
@@ -59,4 +60,6 @@
 	</h:form>
 </p:panel>
 </h:body>
+</ui:define>
+</ui:composition>
 </html>

@@ -62,6 +62,7 @@ public class CreditBB {
 
 			double w = (this.x / (this.y*12));
 			result = w + (w*(this.z/100));
+			
 
 			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacja wykonana", null));
 			return true;
