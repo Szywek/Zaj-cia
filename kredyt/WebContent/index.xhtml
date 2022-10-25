@@ -14,7 +14,12 @@
 
 	<h:form id="bla">
   			<span class="ui-float-label">
-  				<p:inputText id="x" value="#{creditBB.x}" required="true" requiredMessage="Nie podano kwoty"/>
+  				<p:inputText id="x" value="#{creditBB.x}" required="true" 
+  				requiredMessage="Nie podano kwoty"
+  				converterMessage="Podana kwota musi być liczbą" 
+	  			validatorMessage="Kwota nie moze być mniejsza niz 1000zł">
+	  			<f:validateDoubleRange minimum="1000" />
+	  			</p:inputText>	
   				<p:outputLabel for="@previous" value="Kwota"/>
   				<p:message for="x"/>
   			</span>
@@ -22,7 +27,12 @@
   			<br/>
   			<br/>
 			<span class="ui-float-label">
-  				<p:inputText id="y" value="#{creditBB.y}" required="true" requiredMessage="Nie podano Okresu"/>
+  				<p:inputText id="y" value="#{creditBB.y}" required="true" 
+  				requiredMessage="Nie podano Lat kredytu"
+  				converterMessage="Lata kredytu powinne być liczbą całkowitą" 
+	  			validatorMessage="Lata kredytu powinne mieścić się w przedziale 1-30">
+	  			<f:validateDoubleRange minimum="1" maximum="30" />
+	  			</p:inputText>	
   				<p:outputLabel for="@previous" value="Okres"/>
   				<p:message for="y"/>
   			</span>
@@ -30,7 +40,12 @@
 			<br/>
   			<br/>
 			<span class="ui-float-label">
-  				<p:inputText id="z" value="#{creditBB.z}" required="true" requiredMessage="Nie podano Oprocentowania"/>
+  				<p:inputText id="z" value="#{creditBB.z}" required="true" 
+  				requiredMessage="Nie podano Oprocentowania"
+  				converterMessage="Oprocentowanie powinno być liczbą całkowitą" 
+	  			validatorMessage="Oprocentowanie powinne mieścić się w przedziale od 1 - 100" >
+	  			<f:validateDoubleRange minimum="1" maximum="100" />
+	  			</p:inputText>	
   				<p:outputLabel for="@previous" value="Oprocentowanie"/>
   				<p:message for="z"/>
   			</span>
